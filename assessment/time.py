@@ -16,3 +16,16 @@
 # Explanation: There are no valid 24-hour times as "55:55" is not valid.
 
 
+def solution(array):
+    value=2359
+    aaa=-1
+    for i in range(4):
+        for j in range(4):
+            for k in range(4):
+                if i==j or j==k or i==k: continue
+                time=array[i]*1000+array[j]*100+array[k]*10+array[6-i-j-k]
+                if time<2359:
+                    aaa=max(aaa,time)
+    if aaa==-1:
+        return aaa
+    return f'{aaa//100}:{aaa%100}'
