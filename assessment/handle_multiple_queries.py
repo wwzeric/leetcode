@@ -23,16 +23,15 @@
 # numArray.update(1, 2);   // nums = [1, 2, 5]
 # numArray.sumRange(0, 2); // return 1 + 2 + 5 = 8
 
-
-
 class NumArray:
 
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums):
         self.array=nums
         self.sumArray=[]
         total=0
         for a in nums:
-            self.sumArray.append(total+a)
+            total+=a
+            self.sumArray.append(total)
 
     def update(self, index: int, val: int) -> None:
         value=self.array[index]
