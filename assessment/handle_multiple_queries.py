@@ -28,10 +28,19 @@
 class NumArray:
 
     def __init__(self, nums: List[int]):
-        self.array=nums        
+        self.array=nums
+        self.sumArray=[]
+        total=0
+        for a in nums:
+            self.sumArray.append(total+a)
 
     def update(self, index: int, val: int) -> None:
+        value=self.array[index]
         self.array[index]=val
+        diff=val-value
+        ls=len(self.sumArray)
+        for i in range(index,ls):
+            self.sumArray[i]+=diff
 
     def sumRange(self, left: int, right: int) -> int:
-        return sum(self.array[left:right+1])
+        return self.sumArray[right]-self.sumArray[left]
